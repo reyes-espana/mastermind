@@ -1,4 +1,3 @@
-# from .validate import validate_code
 from .db import guesses
 from math import ceil
 
