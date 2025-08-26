@@ -16,13 +16,13 @@ def no_end(score, penalty, tries):
     return table, attempts, score, tries
 
 def end(total):
-    # TODO: tabulate
-    print(f'Final Score: {total}')
-    return guesses.reset()
+    guesses.reset()
+    res = print(tabulate([["💯 Final Score:",total]], tablefmt="simple"))
+    return res
 
 def good_end(score, level):
-    res = print(f'You cracked the code! Score: {score}')
-    phrase = 'Next Level? (Y/N): ' if level < 5 else 'Play Again? (Y/N): '
+    res = print(tabulate([["✨ You cracked the code!✨ Score:", score]], tablefmt="simple"))
+    phrase = 'Next Level? (Y/N): ' if level - 3 < 4 else 'Play Again? (Y/N): '
     extend = input(f'{phrase}').upper()
     validate_extend(extend)
     guesses.reset()
