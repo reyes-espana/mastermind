@@ -23,6 +23,17 @@ def validate_part(part):
         raise ValueError('All values must be between 0 and 7')
     if part < 0 or part > 7:
         raise ValueError('All values must be between 0 and 7')
+    
+
+def validate_score(guess, code, level):
+    if not guess:
+        raise TypeError('No guess provided')
+    if not code:
+        raise TypeError('No code provided')
+    if not level:
+        raise TypeError('No level provided')
+    if len(guess) != len(code):
+        raise ValueError('Guess and code must be the same length')
 
 
 def validate_extend(extend):
