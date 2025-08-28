@@ -39,4 +39,4 @@ def get_extend(level):
             validate_extend(extend)
             return extend
         except ValueError as e:
-            (f'Invalid input: {e}. Please enter either Yes or No.')
+            print(f'Invalid input: {e}. Please enter either Yes or No.')
