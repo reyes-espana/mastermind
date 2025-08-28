@@ -10,13 +10,11 @@ def main():
         if extend in ('Y', 'YES') and level in difficulty:
             level = level + 1 if total > 0 else level
             code = config.code(level)
-            print(code)
             total, extend = game(level, code, total)
         elif extend in ('N', 'NO'): break
         else:
             level = config.level()
             code = config.code(level)
-            print(code)
             total, extend = game(level, code, total)
 
     return config.final(total)
