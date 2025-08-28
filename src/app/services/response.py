@@ -1,4 +1,4 @@
-from .validate import validate_extend
+from .user import get_extend
 from .db import guesses
 
 from tabulate import tabulate
@@ -22,16 +22,13 @@ def end(total):
 
 def good_end(score, level):
     res = print(tabulate([["✨ You cracked the code!✨ Score:", score]], tablefmt="simple"))
-    phrase = 'Next Level? (Y/N): ' if level - 3 < 4 else 'Play Again? (Y/N): '
-    extend = input(f'{phrase}').upper()
-    validate_extend(extend)
+    extend = get_extend(level)
     guesses.reset()
     return res, extend, score
 
 def bad_end(code, score, total):
     res = print(f'Answer: {code}')
-    extend = input('Continue? (Y/N): ').upper()
-    validate_extend(extend)
+    extend = get_extend(0)
     score, total = 0, 0
     guesses.reset()
     return res, extend, score, total

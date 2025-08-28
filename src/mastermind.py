@@ -4,20 +4,19 @@ from app import config
 def main():
     total = 0
     extend = ''
+    difficulty = [4, 5, 6,]
 
     while True: 
-        if extend in ('Y', 'YES') and level - 3 < 4:
+        if extend in ('Y', 'YES') and level in difficulty:
             level = level + 1 if total > 0 else level
             code = config.code(level)
-            # TODO: remove print()
-            print(code) 
+            print(code)
             total, extend = game(level, code, total)
         elif extend in ('N', 'NO'): break
         else:
             level = config.level()
             code = config.code(level)
-            # TODO: remove print()
-            print(code) 
+            print(code)
             total, extend = game(level, code, total)
 
     return config.final(total)

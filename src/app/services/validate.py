@@ -37,7 +37,12 @@ def validate_score(guess, code, level):
 
 
 def validate_extend(extend):
-    ...
+    if not extend:
+        raise ValueError('No input')
+    if not isinstance(extend, str):
+        raise TypeError(f'Expected str value, but got {extend}')
+    if extend not in ('Y', 'YES', 'N', 'NO'):
+        raise ValueError(f'Expected Yes or No, but got {extend}')
 
 
 def validate_sql(sql):
