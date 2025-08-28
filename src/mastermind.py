@@ -4,7 +4,7 @@ from app import config
 def main():
     total = 0
     extend = ''
-    
+
     while True: 
         if extend in ('Y', 'YES') and level - 3 < 4:
             level = level + 1 if total > 0 else level
@@ -19,7 +19,7 @@ def main():
             # TODO: remove print()
             print(code) 
             total, extend = game(level, code, total)
-    
+
     return config.final(total)
 
 
@@ -30,7 +30,7 @@ def game(level, code, total):
 
     while True:
         guess = config.guess(level)
-        
+
         penalty = config.score(guess, code, level)
         if penalty == 0:
             res, extend, score = config.good_fin(score, level)

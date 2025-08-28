@@ -1,9 +1,10 @@
-# from .validate import validate_code
+from .validate import validate_score
 from .db import guesses
 from math import ceil
 
 
 def score_code(guess, code, level):
+    validate_score(guess, code, level)
     temp_guess = []
     temp_code = []
     correct = 0
