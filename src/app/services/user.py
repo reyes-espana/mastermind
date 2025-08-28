@@ -1,4 +1,7 @@
-from .validate import validate_guess, validate_level, validate_part
+from .validate import validate_extend, validate_guess, validate_level, validate_part
+
+
+difficulty = [4, 5, 6,]
 
 
 def get_level():
@@ -26,3 +29,14 @@ def set_guess(guess):
         validate_part(int(num))
         output.append(int(num))
     return tuple(output)
+
+
+def get_extend(level):
+    while True:
+        try:
+            phrase = 'Next Level? (Y/N): ' if level in difficulty else 'Play Again? (Y/N): '
+            extend = input(f'{phrase}').upper()
+            validate_extend(extend)
+            return extend
+        except ValueError as e:
+            print(f'Invalid input: {e}. Please enter either Yes or No.')
