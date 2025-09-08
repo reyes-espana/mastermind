@@ -6,7 +6,7 @@ def main():
     extend = ''
     difficulty = [4, 5, 6,]
 
-    while True: 
+    while True:
         if extend in ('Y', 'YES') and level in difficulty:
             level = level + 1 if total > 0 else level
             code = config.code(level)
