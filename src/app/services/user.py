@@ -37,6 +37,6 @@ def get_extend(level):
             phrase = 'Next Level? (Y/N): ' if level in difficulty else 'Play Again? (Y/N): '
             extend = input(f'{phrase}').upper()
             validate_extend(extend)
-            return extend
+            return extend if level > 0 or extend == 'N' else level
         except ValueError as e:
             print(f'Invalid input: {e}. Please enter either Yes or No.')
